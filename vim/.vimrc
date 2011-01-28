@@ -30,6 +30,7 @@ set shortmess+=I
 " Key Mappings
 imap jj <Esc>
 inoremap <tab> <c-n>
+let mapleader = ","
 nmap <silent> <Leader>n :NERDTreeToggle<CR>
 nmap <silent> <Leader>N :NERDTreeFind<CR>
 map <leader>F :Ack<space>
@@ -96,4 +97,19 @@ function ToggleOverLengthHi()
     echo "overlength hilight on"
   endif
 endfunction"
+
+" keep a longer history than 20
+set history=1000
+
+" Set the terminal title with the filename
+set title
+
+" give more context when we're scrolling
+set scrolloff=3
+
+" Catch trailing whitespace
+" Make them show with ,s
+set listchars=tab:>-,trail:·,eol:$
+nmap <silent> <leader>s :set nolist!<CR>
+
 
