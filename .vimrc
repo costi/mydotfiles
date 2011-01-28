@@ -13,13 +13,9 @@ set t_Co=256
 if &diff
   set background=dark
   colorscheme peaksea
-else
-  set background=dark
-  colorscheme ir_black
 endif
 
 syntax on
-set cursorline
 set number 
 set equalalways
 set splitbelow splitright
