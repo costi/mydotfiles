@@ -10,9 +10,11 @@ set expandtab
 
 " Look and Feel
 set t_Co=256
+set background=dark
 if &diff
-  set background=dark
   colorscheme peaksea
+else
+  colorscheme ir_black
 endif
 
 syntax on
@@ -32,7 +34,7 @@ nmap <silent> <Leader>N :NERDTreeFind<CR>
 map <leader>F :Ack<space>
 map <Leader>t :FuzzyFinderTextMate<CR>
 
-" let g:fuzzy_roots=["cnuapp/db", "cnuapp/etc", "cnuapp/gems", "cnuapp/ruby", "cnuapp_models"]
+let g:fuzzy_roots=["cnuapp/db", "cnuapp/etc", "cnuapp/gems", "cnuapp/ruby", "cnuapp_models"]
 let g:fuzzy_ceiling=13000
 let g:fuzzy_ignore="*.log;*.jpg;*.png;*.gif;*.ref;*.conf;.gitignore"
 
