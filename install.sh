@@ -5,7 +5,12 @@
 # sudo apt-get install -y exuberant-ctags
 # sudo apt-get install -y vim-ruby
 
-cp -va * ~
-tar -cvf - .* --exclude=\. --exclude=\.\. --exclude=\.git | tar -xf - -C ~/
+ME=`readlink -f $0`
+SETUP_DIR=$(dirname $ME)
+ORIGINAL_DIR=`pwd`
 
+cd $SETUP_DIR
+cp -va * ~
+tar -cf - .* --exclude=\. --exclude=\.\. --exclude=\.git | tar -xvf - -C ~/
+cd $ORIGINAL_DIR
 
