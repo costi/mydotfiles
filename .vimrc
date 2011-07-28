@@ -10,16 +10,14 @@ set expandtab
 
 " Look and Feel
 set t_Co=256
+set background=dark
 if &diff
-  set background=dark
   colorscheme peaksea
 else
-  set background=dark
   colorscheme ir_black
 endif
 
 syntax on
-set cursorline
 set number 
 set equalalways
 set splitbelow splitright
@@ -29,14 +27,26 @@ set shortmess+=I
 
 " Key Mappings
 imap jj <Esc>
-inoremap <tab> <c-n>
 let mapleader = ","
 nmap <silent> <Leader>n :NERDTreeToggle<CR>
 nmap <silent> <Leader>N :NERDTreeFind<CR>
 map <leader>F :Ack<space>
 map <Leader>t :FuzzyFinderTextMate<CR>
+map <special> <F5> :ruby finder.rescan!<ENTER>
+" Disable indenting for safe copy paste 
+nnoremap <F8> :setl noai nocin nosi inde=<CR>
+" easier tab navigation
+map gr :tabprev<CR>
+map tn :tabnew<CR>
+" p4 edit
+map <leader>e :!p4 edit %<CR>:e %<CR>
+map <leader>d :!p4 diff %<CR>
+" save
+" this doesn't work: map <leader>s :w<CR>
+" this either: imap <c-s> <c-o><c-s><CR>
 
-" let g:fuzzy_roots=["cnuapp/db", "cnuapp/etc", "cnuapp/gems", "cnuapp/ruby", "cnuapp_models"]
+command! Cnuapp let g:fuzzy_roots=['cnuapp/db', 'cnuapp/etc', 'cnuapp/gems', 'cnuapp/ruby', 'cnuapp_models']
+command! Nocnuapp let g:fuzzy_roots=['.']
 let g:fuzzy_ceiling=13000
 let g:fuzzy_ignore="*.log;*.jpg;*.png;*.gif;*.ref;*.conf;.gitignore"
 
@@ -81,23 +91,6 @@ augroup filetypedetect
   au BufNewFile,BufRead *.wiki setf Wikipedia 
 augroup END
 
-" Highlight rows longer than 80 characters
-map <silent> <F1> <Esc>:call ToggleOverLengthHi()<CR>
-function ToggleOverLengthHi()
-  if exists("b:overlengthhi") && b:overlengthhi
-    highlight clear OverLength
-    let b:overlengthhi = 0
-    echo "overlength hilight off"
-  else
-    " adjust colors/styles as desired
-    highlight OverLength ctermbg=darkred gui=undercurl guisp=blue
-    " change '81' to be 1+(number of columns)
-    match OverLength /\%81v.\+/
-    let b:overlengthhi = 1
-    echo "overlength hilight on"
-  endif
-endfunction"
-
 " keep a longer history than 20
 set history=1000
 
@@ -109,7 +102,7 @@ set scrolloff=3
 
 " Catch trailing whitespace
 " Make them show with ,s
-set listchars=tab:>-,trail:·,eol:$
+" set listchars=tab:>-,trail:·,eol:$
 nmap <silent> <leader>s :set nolist!<CR>
 
 
