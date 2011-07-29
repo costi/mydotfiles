@@ -8,8 +8,9 @@
 ME=`readlink -f $0`
 SETUP_DIR=$(dirname $ME)
 
-files=( .ackrc .bashrc .irbrc .bash_aliases .screenrc .vimrc .vim )
+files=( .ackrc .bashrc .irbrc .bash_aliases .screenrc .vimrc .vim .profile)
 for file in "${files[@]}"
 do
-	ln -v -s ${SETUP_DIR}/${file} ~/${file}
+  rm -vr ~/${file}
+  ln -v -s ${SETUP_DIR}/${file} ~/${file}
 done
