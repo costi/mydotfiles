@@ -1,0 +1,83 @@
+#!/bin/bash
+#
+# Make ./TAGS (or ./tags if --vi-style argument is given). 
+#
+# usage:
+#   make-tags-file [--vi-style]
+#
+# Vi or Vim users should use the --vi-style argument.  Otherwise the default Emacs-style tags file is created.
+#
+
+
+PROGRAM=${0##*/}
+die() { echo "$PROGRAM: fatal: $@"; exit 1; }
+
+[[ -d ./cnuapp ]] || die "There's no ./cnuapp/ directory here.  Please 'cd \$PARENT_OF_CNUAPP/' and try again."
+
+STYLE="-e"  # Make an Emacs tags file
+case $1 in --vi-style) STYLE= ;; esac
+
+# mod_rails
+# rails-1.2
+# cnu_gems
+# wtf
+
+SOURCE_DIRS="
+cnuapp_models
+cabar
+cnuapp/ruby
+cnuapp_ci
+cnuapp_doc
+cnuapp_env
+cnuapp_qa
+cnuapp_rack
+cnu_bloom
+cnu_brand
+cnu_cluster
+cnu_config
+cnu_content
+cnu_cucumber
+cnu_database
+cnu_ivr
+cnu_ldap
+cnu_locale
+cnu_logger
+cnu_memcache
+cnu_multivariate
+cnu_perf
+cnu_pg
+cnu_product_offering
+cnu_rails_app
+cnu_regexp
+cnu_ruby_build
+cnu_ruby_core
+cnu_ruby_lib
+cnu_sass
+cnu_scm
+cnu_service
+cnu_space
+cnu_test
+contenter_api
+cookbooks
+db_global
+doc
+enf_app
+enf_log
+lsws-3.3.14
+red_steak
+shout_trace
+sol_api
+US
+waffles
+"
+
+
+ctags-exuberant ${STYLE}                                                               \
+    -R --languages=ruby                                                                \
+    --exclude=/test/                                                                   \
+    --exclude=cnuapp/ruby/web/FrontEnd/log                                             \
+    --exclude=cnuapp/ruby/web/Portal/log                                               \
+    --exclude=cnuapp/ruby/web/FrontEnd/public/Base/javascripts/awstats_misc_tracker.js \
+    --exclude=cnuapp_rack/apache2/mods-enabled/ssl.conf                                \
+    --exclude='.#*'                                                                    \
+    $SOURCE_DIRS
