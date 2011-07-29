@@ -7,10 +7,9 @@
 
 ME=`readlink -f $0`
 SETUP_DIR=$(dirname $ME)
-ORIGINAL_DIR=`pwd`
 
-cd $SETUP_DIR
-cp -va * ~
-tar -cf - .* --exclude=\. --exclude=\.\. --exclude=\.git | tar -xvf - -C ~/
-cd $ORIGINAL_DIR
-
+files=( .ackrc .bashrc .irbrc .bash_aliases .screenrc .vimrc .vim )
+for file in "${files[@]}"
+do
+	ln -v -s ${SETUP_DIR}/${file} ~/${file}
+done
