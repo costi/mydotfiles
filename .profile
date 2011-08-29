@@ -16,7 +16,6 @@ if [ -n "$BASH_VERSION" ]; then
     fi
 fi
 
-export GEM_HOME="/export/comp/stable/cnu_gems/gems-1.3.5_ruby-1.8.7.174_linux-gnu_i686-linux_Debian-GNU-Linux-5.0"
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/bin" ] ; then
     PATH="$GEM_HOME/bin:/export/comp/stable/cnu_scm/bin:$HOME/bin:/cnu/bin:$PATH"
