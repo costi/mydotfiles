@@ -54,6 +54,7 @@ let g:fuzzy_ignore="*.log;*.jpg;*.png;*.gif;*.ref;*.conf;.gitignore"
 set incsearch
 set ignorecase
 set smartcase
+set hlsearch
 
 " Status Line
 set laststatus=2
