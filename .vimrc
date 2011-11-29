@@ -45,7 +45,7 @@ map <leader>d :!p4 diff %<CR>
 " this doesn't work: map <leader>s :w<CR>
 " this either: imap <c-s> <c-o><c-s><CR>
 
-command! Cnuapp let g:fuzzy_roots=['cnuapp/db', 'cnuapp/etc', 'cnuapp/gems', 'cnuapp/ruby', 'cnuapp_models', 'cnu_config', 'cnuapp/test']
+command! Cnuapp let g:fuzzy_roots=['cnuapp/db', 'cnuapp/etc', 'cnuapp/gems', 'cnuapp/ruby', 'cnuapp_models', 'cnu_config', 'cnuapp/test', 'cnu_test']
 command! Nocnuapp let g:fuzzy_roots=['.']
 let g:fuzzy_ceiling=13000
 let g:fuzzy_ignore="*.log;*.jpg;*.png;*.gif;*.ref;*.conf;.gitignore"
