@@ -8,7 +8,7 @@
 ME=`readlink -f $0`
 SETUP_DIR=$(dirname $ME)
 
-files=( .ackrc .bashrc .irbrc .bash_aliases .screenrc .vimrc .vim .profile bin/make-tags-file)
+files=( .ackrc .bashrc .irbrc .bash_aliases .screenrc .vimrc .vim .profile bin/make-tags-file .gitconfig)
 for file in "${files[@]}"
 do
   rm -vr ~/${file}
