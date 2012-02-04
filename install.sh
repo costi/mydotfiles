@@ -8,8 +8,7 @@
 ME=`readlink -f $0`
 SETUP_DIR=$(dirname $ME)
 
-files=( .ackrc .bashrc .irbrc .bash_aliases .screenrc .vimrc .vim .profile bin/make-tags-file .gitconfig)
-
+files=( .ackrc .bashrc .irbrc .bash_aliases .screenrc .vimrc .vim .profile bin/make-tags-file .gitconfig .tmux.conf)
 mkdir ~/bin
 for file in "${files[@]}"
 do
