@@ -103,7 +103,7 @@ set scrolloff=3
 
 " Catch trailing whitespace
 " Make them show with ,s
-" set listchars=tab:>-,trail:·,eol:$
+set listchars=tab:>-,trail:·,eol:$
 nmap <silent> <leader>s :set nolist!<CR>
 
 
