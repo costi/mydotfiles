@@ -1,5 +1,5 @@
-require 'rubygems'
 #require 'interactive_editor'
+require 'rubygems'
 
 # Automatic Indentation
 IRB.conf[:AUTO_INDENT] = true
@@ -13,8 +13,8 @@ IRB.conf[:SAVE_HISTORY] = 500
 IRB.conf[:HISTORY_FILE] = "#{ENV['HOME']}/.irb-save-history"
 
 
-# https://github.com/michaeldv/awesome_print
 require "awesome_print"
+# https://github.com/michaeldv/awesome_print
 unless IRB.version.include?('DietRB')
   IRB::Irb.class_eval do
     def output_value
