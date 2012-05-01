@@ -101,6 +101,7 @@ if [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
 fi
 export P4CONFIG=~/.p4config
+export PSQL_EDITOR='vim -c"set syntax=sql"'
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"  # Load RVM into a shell session *as a function*
 
