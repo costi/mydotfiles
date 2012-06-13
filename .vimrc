@@ -90,6 +90,7 @@ endfunction
 
 augroup filetypedetect 
   au BufNewFile,BufRead *.wiki setf Wikipedia 
+  au BufRead,BufNewFile *.rabl setf ruby
 augroup END
 
 " keep a longer history than 20
