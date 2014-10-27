@@ -10,22 +10,28 @@ IRB.conf[:PROMPT_MODE] = :SIMPLE
 # Save History between irb sessions
 require 'irb/ext/save-history'
 IRB.conf[:SAVE_HISTORY] = 500
-IRB.conf[:HISTORY_FILE] = "#{ENV['HOME']}/.irb-save-history"
+IRB.conf[:HISTORY_FILE] = "#{ENV['HOME']}/.pry_history"
 
 
 require "awesome_print"
-# https://github.com/michaeldv/awesome_print
-unless IRB.version.include?('DietRB')
-  IRB::Irb.class_eval do
-    def output_value
-      ap @context.last_value
-    end
-  end
-else # MacRuby
-  IRB.formatter = Class.new(IRB::Formatter) do
-    def inspect_object(object)
-      object.ai
-    end
-  end.new
+AwesomePrint.irb!
+
+def issued_loan 
+  require 'suite'
+  @l = Suite::QuickCustomer.customer_with_issued_loan(:brand => :GB, :loan_type_cd => 'oec')
 end
 
+def oec_loan
+  require 'suite'
+  require 'rspec'
+  require 'test/oec_test_case'
+  tc = OecTestCase.new
+  tc.initial_draw_amount = 200
+  Ddi.create_from_session!(tc.customer,
+                          "line1", "line2", "city",
+                          "zip", "bank_name", "manager_name",
+                          tc.customer.current_service_user_number)
+  #tc.coupon_code = "NEWCASH25"
+  #tc.take_loan_to_second_statement
+  tc.loan
+end

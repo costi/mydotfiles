@@ -1,11 +1,10 @@
 #!/bin/bash
 #
-# Make ./TAGS (or ./tags if --vi-style argument is given). 
+# Make ./TAGS if --emacs-style is given
+# make ./tags for vim by default
 #
 # usage:
-#   make-tags-file [--vi-style]
-#
-# Vi or Vim users should use the --vi-style argument.  Otherwise the default Emacs-style tags file is created.
+#   make-tags-file [--emacs-style]
 #
 
 
@@ -14,8 +13,8 @@ die() { echo "$PROGRAM: fatal: $@"; exit 1; }
 
 [[ -d ./cnuapp ]] || die "There's no ./cnuapp/ directory here.  Please 'cd \$PARENT_OF_CNUAPP/' and try again."
 
-STYLE="-e"  # Make an Emacs tags file
-case $1 in --vi-style) STYLE= ;; esac
+STYLE=""  # Make an Emacs tags file
+case $1 in --emacs-style) STYLE="-e" ;; esac
 
 # mod_rails
 # rails-1.2
@@ -24,19 +23,16 @@ case $1 in --vi-style) STYLE= ;; esac
 
 SOURCE_DIRS="
 cnuapp_models
-cabar
 cnuapp/ruby
 cnuapp_ci
 cnuapp_doc
 cnuapp_env
 cnuapp_qa
-cnuapp_rack
 cnu_bloom
 cnu_brand
 cnu_cluster
 cnu_config
 cnu_content
-cnu_cucumber
 cnu_database
 cnu_ivr
 cnu_ldap
@@ -55,10 +51,8 @@ cnu_ruby_lib
 cnu_sass
 cnu_scm
 cnu_service
-cnu_space
 cnu_test
 contenter_api
-cookbooks
 db_global
 doc
 enf_app
@@ -67,8 +61,7 @@ lsws-3.3.14
 red_steak
 shout_trace
 sol_api
-US
-waffles
+suite
 "
 
 

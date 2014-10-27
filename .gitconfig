@@ -23,7 +23,7 @@
   whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
 
 [push]
-	default = current
+	default = tracking
 
 [pull]
-	default = current
+	default = tracking
