@@ -54,7 +54,7 @@ fi
 if [ "$color_prompt" = yes ]; then
     PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 else
-  PS1='[$([[ -e /etc/cnu/cnu_env ]] && ({ source /etc/cnu/cnu_env && echo -n $CNU_CLUSTER/${RAILS_ENV:0:3}; } || echo no cluster set); echo -n "${_CNU_ENV:+ ($CNU_COUNTRY env)}") \w$(__git_ps1 " (%s)")]\$ '
+  PS1='[\t][$([[ -e /etc/cnu/cnu_env ]] && ({ source /etc/cnu/cnu_env && echo -n $CNU_CLUSTER/${RAILS_ENV:0:3}; } || echo no cluster set); echo -n "${_CNU_ENV:+ ($CNU_COUNTRY env)}") \w\[\033[01;30m\]$(__git_ps1)\[\033[00m\]\$ '']]]'
     #PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
 unset color_prompt force_color_prompt
