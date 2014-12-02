@@ -88,6 +88,10 @@ function! SetCursorPosition()
   end
 endfunction
 
+
+au BufRead,BufNewFile *.pde set filetype=arduino
+au BufRead,BufNewFile *.ino set filetype=arduino
+
 augroup filetypedetect 
   au BufNewFile,BufRead *.wiki setf Wikipedia 
   au BufRead,BufNewFile *.rabl setf ruby
