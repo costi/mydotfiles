@@ -15,9 +15,9 @@ SETUP_DIR=$(dirname $ME)
 
 files=( .ackrc .bashrc .irbrc .bash_aliases .screenrc .vimrc .vim .profile bin/make-tags-file .gitconfig .tmux.conf liquidprompt)
 mkdir ~/bin
-rm ~/.vim
+#rm ~/.vim
 for file in "${files[@]}"
 do
-  # rm -vr ~/${file}
+  rm -vr ~/${file}
   ln -v -s -f ${SETUP_DIR}/${file} ~/${file}
 done
