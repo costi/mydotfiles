@@ -5,6 +5,7 @@
 sudo apt-get install -y exuberant-ctags
 #sudo apt-get install -y vim-ruby # vim-ruby is provided by either vim-gtk or vim-gnome
 sudo apt-get install -y vim-gtk
+sudo apt-get install -y ack
 
 git submodule init
 git submodule update # to fetch liquidprompt
