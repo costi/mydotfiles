@@ -46,7 +46,7 @@ map <leader>d :!p4 diff %<CR>
 " this either: imap <c-s> <c-o><c-s><CR>
 
 let g:fuzzy_ceiling=16000
-let g:fuzzy_ignore="*.csv;*.log;*.jpg;*.png;*.gif;*.ref;*.conf;.gitignore"
+let g:fuzzy_ignore="*.csv;*.log;*.jpg;*.png;*.gif;*.ref;*.conf;.gitignore;tmp/*"
 
 " Search
 set incsearch
