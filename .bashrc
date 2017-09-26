@@ -111,4 +111,6 @@ export PATH="/usr/local/heroku/bin:$PATH"
 source ~/liquidprompt/liquidprompt
 
 
-
+export GEM_HOME=~/.gems
+export PATH=$GEM_HOME/bin:$HOME/.local/bin:$PATH
+export EDITOR=vim
