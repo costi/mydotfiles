@@ -25,13 +25,21 @@ set scrolloff=8
 set backspace=indent,eol,start
 set shortmess+=I
 
+set runtimepath^=~/.vim/bundle/ctrlp.vim
+if executable('ag')
+  " Use Ag over Grep
+  set grepprg=ag\ --nogroup\ --nocolor
+
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+endif
+
 " Key Mappings
 imap jj <Esc>
 let mapleader = ","
 nmap <silent> <Leader>n :NERDTreeToggle<CR>
 nmap <silent> <Leader>N :NERDTreeFind<CR>
 map <leader>F :Ack<space>
-map <Leader>t :FuzzyFinderTextMate<CR>
 map <special> <F5> :ruby finder.rescan!<ENTER>
 " Disable indenting for safe copy paste 
 nnoremap <F8> :setl noai nocin nosi inde=<CR>
@@ -44,9 +52,6 @@ map <leader>d :!p4 diff %<CR>
 " save
 " this doesn't work: map <leader>s :w<CR>
 " this either: imap <c-s> <c-o><c-s><CR>
-
-let g:fuzzy_ceiling=16000
-let g:fuzzy_ignore="*.csv;*.log;*.jpg;*.png;*.gif;*.ref;*.conf;.gitignore;tmp/*"
 
 " Search
 set incsearch
