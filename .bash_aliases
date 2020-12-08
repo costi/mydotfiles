@@ -7,3 +7,4 @@ alias ...="cd ../.."
 
 alias spec='spec --color --format specdoc'
 alias be='bundle exec'
+alias aws='docker run --rm -it -v ~/.aws:/root/.aws -v $(pwd):/aws amazon/aws-cli'
